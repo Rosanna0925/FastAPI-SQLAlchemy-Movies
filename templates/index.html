@@ -5,9 +5,16 @@
 </head>
 <body>
     <h1>Movie List</h1>
+    {% if movies==[]: %}
     <p>let's add new movie!</p>
+    {% else %}
     {% for movie in movies: %}
-    <p>{{movie.name}}</p>
+    <li>
+        <a href="{{ url_for('delete', movie_id=movie.id)}}">Delete</a> {{movie.name}}
+    </li>
     {% endfor %}
+    {% endif %}
+
+    <a href="{{ url_for('add')}}">Add New Movie</a>
 </body>
 </html>

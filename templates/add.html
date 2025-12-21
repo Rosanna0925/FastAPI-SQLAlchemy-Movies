@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <form action="/add" method="POST">
-    <input type="text" name="name" placeholder="movie_name">
-    <textarea name="intro" placeholder="movie_intro"></textarea>
-    <input type="number" name="rating" placeholder="movie_rating">
+    <label for="name">Movie name：</label>
+    <input type="text" name="name" placeholder="name">
+    <label for="intro">Movie introduction：</label>
+    <textarea name="intro" placeholder="introduction"></textarea>
+    <label for="intro">Movie rating：</label>
+    <input type="number" name="rating" placeholder="rating">
     <button type="submit">Add Movie</button>
 </form>

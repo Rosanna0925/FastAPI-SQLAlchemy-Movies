@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, Form, Depends
+from fastapi import FastAPI, Request, Form, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy import create_engine, Column, Integer, String
@@ -22,9 +22,9 @@ class Movie(Base):
     rating=Column(Integer, index=True)
     
 class AddMovieForm(BaseModel):
-    name:str=""
-    intro:str=""
-    rating:int=5
+    name:str
+    intro:str
+    rating:int
 
 Base.metadata.create_all(bind=engine)
 
@@ -46,22 +46,6 @@ async def read_root(request: Request):
     return templates.TemplateResponse(
         request=request, name="index.html", context={"movies":movies})
     
-# @app.api_route("/add", methods=["GET","POST"], response_class=HTMLResponse)
-# async def add(request: Request,
-#         data:Annotated[AddMovieForm, Form()]=None,
-#         db:Session=Depends(get_db)):
-#     form=AddMovieForm()
-#     if request.method == "GET":
-#         return templates.TemplateResponse("add.html",{"request":request})
-#     if request.method == "POST" and data:
-#         new_movie=Movie(
-#             name=data.name,
-#             intro=data.intro,
-#             rating=data.rating
-#         )
-#         session.add(new_movie)
-#         session.commit()
-#     return RedirectResponse(url="/")
 
 
 @app.api_route("/add", methods=["GET","POST"])
@@ -82,4 +66,14 @@ async def add(request: Request,
         session.commit()
         data={"name":name,"intro":intro,"rating":rating}
         print(data)
+        return RedirectResponse(url="/")
+    
+@app.get("/delete/{movie_id}")
+def delete(movie_id:int):
+    with Session(engine) as session:
+        movie=session.get(Movie, movie_id)
+        if not movie:
+            raise HTTPException(status_code=404, detail="Movie not found")
+        session.delete(movie)
+        session.commit()
         return RedirectResponse(url="/")
