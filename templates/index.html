@@ -10,7 +10,7 @@
     {% else %}
     {% for movie in movies: %}
     <li>
-        <a href="{{ url_for('delete', movie_id=movie.id)}}">Delete</a> {{movie.name}}
+        <a href="{{ url_for('delete', movie_id=movie.id)}}">Delete</a> {{movie.name}} -- {{movie.rating}} <a href="{{ url_for('edit', movie_id=movie.id)}}">Edit</a>
     </li>
     {% endfor %}
     {% endif %}

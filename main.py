@@ -29,8 +29,6 @@ class AddMovieForm(BaseModel):
 Base.metadata.create_all(bind=engine)
 
 
-movie_1=Movie(name="My sister's host", intro="touched movie!", rating=6)
-
 with Session(engine) as session:
     # session.add(movie_1)
     session.commit()
@@ -64,8 +62,6 @@ async def add(request: Request,
         )
         session.add(new_movie)
         session.commit()
-        data={"name":name,"intro":intro,"rating":rating}
-        print(data)
         return RedirectResponse(url="/")
     
 @app.get("/delete/{movie_id}")
@@ -77,3 +73,15 @@ def delete(movie_id:int):
         session.delete(movie)
         session.commit()
         return RedirectResponse(url="/")
+    
+
+@app.api_route("/edit/{movie_id}", methods=["GET","POST"])
+def edit(request: Request,movie_id:int,rating: Annotated[int, Form()] = None):
+    with Session(engine) as session:
+        movie=session.get(Movie, movie_id)
+        if request.method=="POST":
+            movie.rating=rating
+            session.commit()
+            return RedirectResponse(url="/")
+        return templates.TemplateResponse("edit.html",{"request":request, "movie":movie})
+    

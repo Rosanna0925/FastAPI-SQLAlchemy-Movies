@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit Rating</title>
+    </head>
+    <body>
+        <h2>Movie Name:{{ movie.name }}</h2>
+        <h2>Current Introduction:{{ movie.intro }}</h2>
+        <h2>Current Rating:{{ movie.rating }}</h2>
+        <form action="{{ url_for('edit', movie_id=movie.id) }}" method="POST">
+            <input type="hidden" name="movie_id" value="{{ movie.id }}">
+            <label for="rating">New Movie rating:</label>
+            <input type="number" name="rating" placeholder="new rating">
+            <button type="submit">Change Rating</button>
+        </form>
+    </body>
+</html>
