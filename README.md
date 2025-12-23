@@ -1,4 +1,4 @@
-**# Movie Database Management System**
+# ** Movie Database Management System**
 A lightweight, web-based movie management application built with **FastAPI** and **SQLAlchemy**. This project provides a user-friendly interface to manage a digital library of movies using full CRUD (Create, Read, Update, Delete) operations.
 
 ## Features
@@ -11,11 +11,18 @@ A lightweight, web-based movie management application built with **FastAPI** and
 
 ## Tech Stack
 
-**-Framework:** [FastAPI](https://fastapi.tiangolo.com/)
-**-ORM:** [SQLAlchemy](https://www.sqlalchemy.org/)
-**-Database:** SQLite
-**-Templating:** Jinja2
-**-Frontend:** HTML5, CSS3
+<ul>
+<li>
+**-Framework:** [FastAPI](https://fastapi.tiangolo.com/)</li>
+<li>
+**-ORM:** [SQLAlchemy](https://www.sqlalchemy.org/)</li>
+<li>
+**-Database:** SQLite</li>
+<li>
+**-Templating:** Jinja2</li>
+<li>
+**-Frontend:** HTML5, CSS3</li>
+</ul>
 
 ## Project Structure
 
