@@ -1,1 +1,1 @@
-<h1>Movie Database Management System</h1>
+[Movie Database Management System]A lightweight, web-based movie management application built with FastAPI and SQLAlchemy. This project provides a user-friendly interface to manage a digital library of movies using full CRUD (Create, Read, Update, Delete) operations.
