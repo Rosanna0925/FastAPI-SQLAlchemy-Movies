@@ -4,7 +4,7 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
-from typing import Annotated, Optional
+from typing import Annotated
 from pydantic import BaseModel
 
 SQLALCHEMY_DATABASE_URL="sqlite:///./test.db"
@@ -30,9 +30,7 @@ Base.metadata.create_all(bind=engine)
 
 
 with Session(engine) as session:
-    # session.add(movie_1)
     session.commit()
-    # session.refresh(movie_1)
 
 app=FastAPI()
 
