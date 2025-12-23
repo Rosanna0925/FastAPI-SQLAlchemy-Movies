@@ -38,7 +38,7 @@ A lightweight, web-based movie management application built with **FastAPI** and
 ## Getting Started
 **1.Installation**
 Clone the repository and navigate into the project directory:
-```git clone https://github.com/Rosanna0925/fastapi-practice.git
+```git clone https://github.com/Rosanna0925/FastAPI-SQLAlchemy-Movies.git
 cd movie-database-fastapi
 ```
 
