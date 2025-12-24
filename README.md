@@ -1,6 +1,6 @@
 <div align="center">
   <picture>
-    <img src="image/topic-photo.jpg"
+    <img src="image/topic photo.jpg"
          width="50%">
   </picture>
 
