@@ -1,3 +1,8 @@
+<div align="center">
+  <picture>
+    <img src="C:\Users\rosannaclchang\OneDrive - fih-foxconn.com\圖片\topic photo.jpg"
+         width="50%">
+  </picture>
 # **Movie Database Management System**
 A lightweight, web-based movie management application built with **FastAPI** and **SQLAlchemy**. This project provides a user-friendly interface to manage a digital library of movies using full CRUD (Create, Read, Update, Delete) operations.
 
