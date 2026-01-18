@@ -23,8 +23,8 @@ import os
 sys.path.append(os.getcwd())
 
 from database import Base
+from models import Movie
 target_metadata=Base.metadata
-declarative_base
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
