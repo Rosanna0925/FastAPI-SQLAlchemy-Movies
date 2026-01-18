@@ -1,36 +1,17 @@
 from fastapi import FastAPI, Request, Form, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
-from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker, Session
 from typing import Annotated
 from pydantic import BaseModel
 
-SQLALCHEMY_DATABASE_URL="sqlite:///./test.db"
-engine=create_engine(SQLALCHEMY_DATABASE_URL)
-Sesssional=sessionmaker(autocommit=False, autoflush=False, bind=engine)
+from database import engine, SessionLocal
+from models import Movie
 
-Base=declarative_base()
-
-class Movie(Base):
-    __tablename__="movies"
-
-    id=Column(Integer, primary_key=True, index=True)
-    name=Column(String, index=True)
-    intro=Column(String, index=True)
-    rating=Column(Integer, index=True)
     
 class AddMovieForm(BaseModel):
     name:str
     intro:str
     rating:int
-
-Base.metadata.create_all(bind=engine)
-
-
-with Session(engine) as session:
-    session.commit()
 
 app=FastAPI()
 
