@@ -5,12 +5,26 @@ services:
     image: postgres:15-alpine
     restart: always
     environment:
-      POSTGRES_USER: dev_user
-      POSTGRES_PASSWORD: dev_password123
-      POSTGRES_DB: fastapi_test_db
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+  web:
+    build: .  # 告訴 Docker 使用當前目錄下的 Dockerfile 來建立鏡像
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app  
+    environment:
+      
+      - DATABASE_URL=postgresql://dev_user:dev_password123@db:5432/fastapi_test_db
+    depends_on:
+      - db     
+
 volumes:
   postgres_data:
