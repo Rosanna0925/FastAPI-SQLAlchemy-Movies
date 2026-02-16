@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV=/mnt/c/Users/Rosanna/.vscode/FastAPI-practice/fastapi-practice/venv
+VIRTUAL_ENV=/home/rosanna/fastapi-practice/venv
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

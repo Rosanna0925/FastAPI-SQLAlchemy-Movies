@@ -18,11 +18,11 @@ services:
     restart: always
     ports:
       - "8000:8000"
-    volumes:
-      - .:/app  
+    # volumes:
+    #   - .:/ehmax  
     environment:
       
-      - DATABASE_URL=postgresql://dev_user:dev_password123@db:5432/fastapi_test_db
+      - DATABASE_URL=postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
     depends_on:
       - db     
 

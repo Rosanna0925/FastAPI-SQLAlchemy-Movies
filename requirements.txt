@@ -7,6 +7,15 @@ uvicorn[standard]>=0.27.0
 # Database ORM
 sqlalchemy>=2.0.0
 
+# Database Driver (連線 PostgreSQL 必備)
+psycopg2-binary>=2.9.9
+
+# Environment Variables (讀取 .env 必備)
+python-dotenv>=1.0.0
+
+# Data Seeding (seed.py 使用)
+faker>=20.0.0
+
 # Template Engine (Required for rendering HTML)
 jinja2>=3.1.0
 

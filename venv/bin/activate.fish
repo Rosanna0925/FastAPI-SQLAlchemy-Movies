@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /mnt/c/Users/Rosanna/.vscode/FastAPI-practice/fastapi-practice/venv
+set -gx VIRTUAL_ENV /home/rosanna/fastapi-practice/venv
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

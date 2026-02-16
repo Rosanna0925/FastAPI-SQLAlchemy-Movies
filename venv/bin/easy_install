@@ -1,4 +1,4 @@
-#!/mnt/c/Users/Rosanna/.vscode/FastAPI-practice/fastapi-practice/venv/bin/python3
+#!/home/rosanna/fastapi-practice/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

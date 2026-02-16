@@ -67,3 +67,5 @@ def edit(request: Request,movie_id:int,rating: Annotated[int, Form()] = None):
             return RedirectResponse(url="/")
         return templates.TemplateResponse("edit.html",{"request":request, "movie":movie})
     
+
+    
