@@ -6,7 +6,7 @@ from models import Movie
 fake=Faker(['zh_TW'])
 def seed_movies(count=10):
     with SessionLocal() as session:
-        for _ in range(20):
+        for _ in range(10000):
             word_count=random.randint(1,6)
             random_words="".join(fake.words(nb=word_count))
             sentence_count=random.randint(10,15)
@@ -16,4 +16,4 @@ def seed_movies(count=10):
             session.add(new_movie)
             session.commit()
 if __name__=="__main__":
-    seed_movies(20)
+    seed_movies(10000)

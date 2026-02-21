@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, Form, HTTPException
+from fastapi import FastAPI, Request, Form, HTTPException, Query
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from typing_extensions import Annotated
@@ -19,11 +19,14 @@ app=FastAPI()
 templates=Jinja2Templates(directory="templates")
 
 @app.api_route("/", methods=["GET","POST"],response_class=HTMLResponse)
-async def read_root(request: Request):
+async def read_root(request: Request, page:int=Query(1,ge=1), size:int=Query(10,ge=1)):
+    skip=(page-1)*size
     with SessionLocal() as session:
-     movies=session.query(Movie).all()
+        total_count=session.query(Movie).count()
+        movies=session.query(Movie).offset(skip).limit(size).all()
+        total_pages=(total_count+size-1)//size
     return templates.TemplateResponse(
-        request=request, name="index.html", context={"movies":movies})
+        request=request, name="index.html", context={"movies":movies,"page":page,"size":size,"total_pages":total_pages, "total_count":total_count})
     
 
 

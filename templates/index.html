@@ -17,4 +17,16 @@
 
     <a href="{{ url_for('add')}}">Add New Movie</a>
 </body>
+<div class="pagination">
+    {% if page >1 %}
+    <a href="/?page={{ page-1}}&size={{size}}">上一頁</a>
+    {% endif %}
+
+    <span>第 {{ page }} / {{total_pages}} 頁 (共 {{ total_count }}筆)</span>
+
+    {% if page < total_pages %}
+    <a href="/?page={{  page+1  }}&size={{ size }}">下一頁</a>
+    {% endif %}
+</div>
+
 </html>
