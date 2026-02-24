@@ -16,8 +16,8 @@
     {% endif %}
 
     <a href="{{ url_for('add')}}">Add New Movie</a>
-</body>
-<div class="pagination">
+
+    <div class="pagination">
     {% if page >1 %}
     <a href="/?page={{ page-1}}&size={{size}}">上一頁</a>
     {% endif %}
@@ -27,6 +27,6 @@
     {% if page < total_pages %}
     <a href="/?page={{  page+1  }}&size={{ size }}">下一頁</a>
     {% endif %}
-</div>
-
+    </div>
+</body>
 </html>

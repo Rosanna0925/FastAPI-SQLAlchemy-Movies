@@ -16,8 +16,8 @@ services:
     restart: always
     ports:
       - "8000:8000"
-    # volumes:
-    #   - .:/ehmax  
+    volumes:
+      - .:/ehmax  
     environment:
       
       - DATABASE_URL=postgresql://${DB_USER}:${DB_PASSWORD}@db:5432/${DB_NAME}
